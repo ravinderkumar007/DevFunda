@@ -1,0 +1,33 @@
+﻿<script src='https://www.google.com/recaptcha/api.js'></script>
+<script src="~/js/vendor/jquery-1.12.4.min.js"></script>
+<b>@ViewData["emsg"]</b>
+<form asp-action="SubmitEnrollForm" asp-controller="home" method="post" id="modal-form" name="myform">
+    <div class="singel-form">
+
+        <input type="text" placeholder="Your name" name="Name">
+    </div>
+    <div class="singel-form">
+        <input type="email" placeholder="Your Mail" name="email" required>
+    </div>
+    <div class="singel-form">
+        <input type="text" placeholder="Your Phone" name="phone">
+    </div>
+    <div class="singel-form">
+        <textarea cols="46" rows="5" placeholder="Subject Description" name="description"></textarea>
+    </div>
+
+<div class="g-recaptcha" data-sitekey="6Ld6zDgaAAAAAHs3b-1SqP8iAV7k_SgLofM7Kd0M"></div>
+
+<div class="singel-form">
+    <button class="main-btn" type="button" onclick="formSubmit()">Get it Now</button>
+
+</div>
+</form>
+<script>
+    function formSubmit() {
+        var res = grecaptcha.getResponse();
+       if (res != '') $('#myform').submit();
+        else alert('Please select the captcha!')
+    }
+</script>
+

@@ -1,0 +1,127 @@
+﻿ 
+    <header id="header-part">
+       
+        <div class="header-top d-none d-md-block">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="header-contact text-lg-left text-center">
+                            <ul>
+                              
+                                <li><img src="~/images/all-icon/email.png" alt="icon"><span>teach@devfunda.com</span></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="header-social text-lg-right text-center">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://youtube.com/@Html.Raw("@dev_funda")"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="https://www.linkedin.com/company/devfunda/"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div> <!-- header top -->
+        
+        <div class="navigation navigation-2">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg-11 col-md-10 col-sm-9 col-9">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                               <img src=@Url.Content("~/images/logo.png") alt="Logo">
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Home", "index", "Home")
+
+                                    </li>
+                                  
+                                    <li class="nav-item">
+                                   
+                                    @Html.ActionLink("Language", "languagecourses", "language")
+                                    <ul class="sub-menu">
+                                            <li>@Html.ActionLink("C", "c", "language")</li>
+                                            <li>@Html.ActionLink("C++", "cpp", "language")</li>
+                                            <li>@Html.ActionLink("C#", "csharp", "language")</li>
+                                        <li>@Html.ActionLink("Python", "python", "language")</li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">Front End </a>
+                                        <ul class="sub-menu">
+                                            <li>@Html.ActionLink("HTML 5", "html5", "frontend")</li>
+                                            <li>@Html.ActionLink("JavaScript", "javascript", "frontend")</li>
+                                            <li>@Html.ActionLink("CSS", "css", "frontend")</li>
+                                            <li>@Html.ActionLink("JSON", "json", "frontend")</li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">MEAN Stack</a>
+                                        <ul class="sub-menu">
+
+                                            <li>@Html.ActionLink("MongoDB", "MongoDB", "MeanStack")</li>
+                                            <li>@Html.ActionLink("Express.JS", "ExpressJS", "MeanStack")</li>
+                                            <li>@Html.ActionLink("Angular", "Angular", "MeanStack")</li>
+                                            <li>@Html.ActionLink("Node.JS", "NodeJS", "MeanStack")</li>
+
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">Dot.NET</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">ASP.NET</a></li>
+                                            <li><a href="#">MVC</a></li>
+                                            <li><a href="#">Web API</a></li>
+                                            <li><a href="#">.Net Core</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="#">Azure</a>
+                                        <ul class="sub-menu">
+                                            <li><a href="#">Azure Function</a></li>
+                                            <li><a href="#">Microservices</a></li>
+                                            <li><a href="#">DevOps</a></li>
+                                            <li><a href="#">Messaging and Queue</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Blog", "index", "blog")
+
+                                    </li>
+                                    <li class="nav-item">
+                                        @Html.ActionLink("Lab", "index", "lab")
+
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </nav> <!-- nav -->
+                    </div>
+                   <!-- <div class="col-lg-1 col-md-2 col-sm-3 col-3">
+                        <div class="right-icon text-right">
+                            <ul>
+                                <li><a href="#" id="search"><i class="fa fa-search"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-bag"></i><span>0</span></a></li>
+                            </ul>
+                        </div> <!-- right icon --
+                    </div>-->
+                </div> <!-- row -->
+            </div> <!-- container -->
+        </div>
+        
+    </header>
