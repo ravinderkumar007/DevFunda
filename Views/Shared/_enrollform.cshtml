@@ -1,7 +1,7 @@
 ﻿<script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
-<b>@ViewData["emsg"]</b>
-<form asp-action="SubmitEnrollForm" asp-controller="home" method="post" id="modal-form" name="myform">
+<div class="bs-danger" id="formResult"></div>
+<form asp-action="SubmitEnrollForm" asp-controller="home" method="post" id="contactForm" name="contactForm">
     <div class="singel-form">
 
         <input type="text" placeholder="Your name" name="Name">
@@ -19,7 +19,7 @@
 <div class="g-recaptcha" data-sitekey="6Ld6zDgaAAAAAHs3b-1SqP8iAV7k_SgLofM7Kd0M"></div>
 
 <div class="singel-form">
-    <button class="main-btn" type="button" onclick="formSubmit()">Get it Now</button>
+    <button class="main-btn" type="submit">Get it Now</button>
 
 </div>
 </form>
@@ -29,5 +29,19 @@
        if (res != '') $('#myform').submit();
         else alert('Please select the captcha!')
     }
+
+    
+        $("#contactForm").submit(function (e) {
+            e.preventDefault();
+            $.ajax({
+            url: '@Url.Action("SubmitEnrollForm", "Home")',
+                type: 'POST',
+                data: $(this).serialize(),
+                success: function (response) {
+                    $("#formResult").html(response);
+                }
+            });
+        });
+
 </script>
 

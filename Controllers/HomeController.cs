@@ -72,9 +72,7 @@ namespace Devfunda.Controllers
 
             // If validation fails, return form with validation errors
             ViewData["emsg"] = "Please fill all the fields";
-            return PartialView("_enrollform");
-          
-           // return Content("<p class='text-success'>Form submitted successfully!</p>");
+             return Content("<p class='bs-danger'>Please fill all the fields!</p>");
         }
 
         private async Task<bool> VerifyRecaptcha(string captchaResponse)
