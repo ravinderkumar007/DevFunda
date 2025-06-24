@@ -16,7 +16,8 @@ namespace DevFunda.Models
         { get; set; }
         public string description
         { get; set; }
-       
 
+        public string? CourseName { get; set; }
+    
     }
 }

@@ -672,7 +672,7 @@
                             </ul>
                             <div class="price-button pt-10">
                                 <span>Price : <b>&#8377;4500</b></span>
-                                <a class="main-btn" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="loadContactForm()">Enroll Now</a>
+                                <a class="main-btn" data-bs-toggle="modal" data-bs-target="#contactModal" data-id="Python" onclick="loadContactForm(this)">Enroll Now</a>
 
 
                                 <!-- Modal -->
@@ -835,8 +835,9 @@
 
 <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
 <script>
-    function loadContactForm() {
-        $.get('@Url.Action("LoadEnrollForm", "Home")', function (data) {
+    function loadContactForm(data) {
+        var coursename=$(data).data("id")
+        $.get('@Url.Action("LoadEnrollForm", "Home")', { id: coursename }, function (data) {
             $('#contactModalBody').html(data);
         });
     }

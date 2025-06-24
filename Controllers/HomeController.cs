@@ -25,9 +25,14 @@ namespace Devfunda.Controllers
             return View();
         }
 
-        public IActionResult LoadEnrollForm()
+        public IActionResult LoadEnrollForm(string id)
         {
-          return PartialView("_enrollform");
+            var model = new EnrollFormModel {
+
+                CourseName = id
+ };
+
+          return PartialView("_enrollform",model);
         }
         [HttpPost]
         public IActionResult SubmitEnrollForm(Enrollform model)
@@ -39,7 +44,7 @@ namespace Devfunda.Controllers
                 MailMessage message = new MailMessage();
                 message.From = new MailAddress(_configuration["DemoSessionEmail:SMTP_Email"]);
                 message.To.Add(new MailAddress(_configuration["DemoSessionEmail:To_Email"]));
-                message.Subject = "Demo Class Request";
+                message.Subject = "Demo Class Request for- " + model.CourseName;
                 message.IsBodyHtml = true;
 
                 message.Body = model.description + "<Br> Submit by " + model.email + "<BR> phone" + model.phone;
@@ -72,7 +77,7 @@ namespace Devfunda.Controllers
 
             // If validation fails, return form with validation errors
             ViewData["emsg"] = "Please fill all the fields";
-             return Content("<p class='bs-danger'>Please fill all the fields!</p>");
+             return Content("<p class='alert alert-danger' role='alert'>Please fill all the fields!</p>");
         }
 
         private async Task<bool> VerifyRecaptcha(string captchaResponse)

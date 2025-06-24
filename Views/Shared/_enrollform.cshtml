@@ -1,9 +1,10 @@
-﻿<script src='https://www.google.com/recaptcha/api.js'></script>
+﻿@model DevFunda.Models.EnrollFormModel;
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="~/js/vendor/jquery-1.12.4.min.js"></script>
 <div class="bs-danger" id="formResult"></div>
 <form asp-action="SubmitEnrollForm" asp-controller="home" method="post" id="contactForm" name="contactForm">
     <div class="singel-form">
-
+       <input type="hidden" value=@Model.CourseName name="CourseName" />
         <input type="text" placeholder="Your name" name="Name">
     </div>
     <div class="singel-form">
