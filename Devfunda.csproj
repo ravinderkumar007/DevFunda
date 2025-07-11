@@ -9,6 +9,9 @@
   <ItemGroup>
     <None Include="Views\home\Aboutus.cshtml" />
     <None Include="Views\home\Index.cshtml" />
+    <None Include="Views\tutorials\Index.cshtml" />
+    <None Include="Views\tutorials\mongodbtutorial.cshtml" />
+    <None Include="Views\tutorials\nodejs.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
