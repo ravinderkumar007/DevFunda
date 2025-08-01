@@ -1,0 +1,74 @@
+﻿@model Devfunda.Areas.Admin.Models.TutorialTopic
+@{
+    var category = (Devfunda.Areas.Admin.Models.TutorialCategory)ViewBag.Category;
+}
+<section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-3.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2>Node.js Tutorial</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="~/tutorials">Tutorial</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Node.js</li>
+                        </ol>
+                    </nav>
+                </div> <!-- page banner cont -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<!--====== PAGE BANNER PART ENDS ======-->
+<!--====== EVENTS PART START ======-->
+
+<section id="event-singel" class="pt-40 pb-120 gray-bg">
+    <div class="container">
+        <div class="events-area">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="events-left">
+                        <h3>Node.js Introduction</h3>
+                        <span><i class="fa fa-calendar"></i> 19 July 2025</span>
+                        <span><i class="fa fa-clock-o"></i> Time to read : 12 Minutes </span>
+
+                        <img src="~/images/nodejsimg.webp" alt="Event">
+
+                        <p>
+                            <article class="mt-3">
+                                   
+                                                            @Html.Raw(Model.TopicContent)
+                            </article>
+                     
+</p>
+                    </div> <!-- events left -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="events-right">
+                        <div class="events-coundwon bg_cover" data-overlay="8" style="background-image: url(images/event/singel-event/coundown.jpg)">
+                            <div class="items-count"><h4>Want to learn in class</h4> </div>
+                            <div class="events-coundwon-btn pt-30">
+                                <a href="#" class="main-btn">Book Your Seat</a>
+                            </div>
+                        </div> <!-- events coundwon -->
+                        <div class="events-address mt-30">
+
+                            <amp-ad width="100vw" height="320"
+                                    type="adsense"
+                                    data-ad-client="ca-pub-1856935690070253"
+                                    data-ad-slot="4297908394"
+                                    data-auto-format="rspv"
+                                    data-full-width="">
+                                <div overflow=""></div>
+                            </amp-ad>
+                        </div> <!-- events address -->
+                    </div> <!-- events right -->
+                </div>
+            </div> <!-- row -->
+        </div> <!-- events-area -->
+    </div> <!-- container -->
+</section>
+
+<!--====== EVENTS PART ENDS ======-->

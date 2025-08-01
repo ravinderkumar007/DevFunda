@@ -1,0 +1,48 @@
+﻿@model Tutorial
+<h2>Create Tutorial</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Category ID:</label>
+        <select asp-for="CategoryId" asp-items="@(ViewBag.Categories)">
+            <option value="">-- Select Category --</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Title:</label>
+        <input asp-for="Title" />
+    </div>
+
+    <div>
+        <label>Details:</label>
+        <textarea asp-for="Details"></textarea>
+    </div>
+
+    <div>
+        <label>Image URL:</label>
+        <input asp-for="ImageUrl" />
+    </div>
+
+    <div>
+        <label>Slug:</label>
+        <input asp-for="Slug" />
+    </div>
+
+    <div>
+        <label>Published On:</label>
+        <input asp-for="PublishedOn" type="date" />
+    </div>
+
+    <div>
+        <label>Updated On:</label>
+        <input asp-for="UpdatedOn" type="date" />
+    </div>
+
+    <div>
+        <label>Is Active:</label>
+        <input asp-for="IsActive" type="checkbox" />
+    </div>
+
+    <button type="submit">Save</button>
+</form>

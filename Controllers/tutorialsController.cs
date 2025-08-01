@@ -1,40 +1,62 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dapper;
+using Devfunda.Areas.Admin.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 
 namespace Devfunda.Controllers
 {
-    public class tutorialsController : Controller
+    public class TutorialsController : Controller
     {
-        private static readonly Dictionary<string, string> SlugToViewMap = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
-    {
-        { "node-js-intro", "Intro" },
-        { "what-is-node-js", "whatisnode" },
-        { "node-js-middleware", "Middleware" },
-        // Add more as needed
-    };
-        public IActionResult Index()
-        {
-            return View();
-        }
-        public IActionResult MongoDBtutorial()
-        {
-            return View();
-        }
-        public IActionResult NodeJs()
-        {
-            return View();
-        }
-        [Route("tutorials/nodejs/{topic}")]
-        public IActionResult NodeJs(string topic)
-        {
+        private readonly IConfiguration _config;
+        private readonly string _conn;
 
-            if (SlugToViewMap.TryGetValue(topic, out var viewName))
-            {
-                return View("nodejs/"+viewName); // Opens Views/Tutorials/Nodejs/Intro.cshtml etc.
-            }
+        public TutorialsController(IConfiguration config)
+        {
+            _config = config;
+            _conn = _config.GetConnectionString("DefaultConnection");
+        }
 
-            return NotFound(); // Or redirect to a default page
+        // List of all categories
+        public async Task<IActionResult> Index()
+        {
+            using var conn = new SqlConnection(_conn);
+            var categories = await conn.QueryAsync<TutorialCategory>("SELECT * FROM TutorialCategories WHERE IsActive = 1");
+            return View(categories);
+        }
+
+        // List of all topics under a category (from all its tutorials)
+        public async Task<IActionResult> Category(string categorySlug)
+        {
+            using var conn = new SqlConnection(_conn);
+
+            var category = await conn.QueryFirstOrDefaultAsync<TutorialCategory>(
+                "SELECT * FROM TutorialCategories WHERE Slug = @Slug AND IsActive = 1", new { Slug = categorySlug });
+
+            if (category == null) return NotFound();
+
+            var topics = await conn.QueryAsync<TutorialTopic>(
+                @"SELECT t.* FROM TutorialTopics t
+              INNER JOIN Tutorials tu ON tu.Id = t.TutorialId
+              WHERE tu.CategoryId = @CategoryId AND t.IsActive = 1 AND tu.IsActive = 1",
+                new { CategoryId = category.Id });
+
+            ViewBag.Category = category;
+            return View(topics);
+        }
+
+        // Topic Details Page
+        public async Task<IActionResult> Topic(string categorySlug, string topicSlug)
+        {
+            using var conn = new SqlConnection(_conn);
+
+            var topic = await conn.QueryFirstOrDefaultAsync<TutorialTopic>(
+                "SELECT * FROM TutorialTopics WHERE Slug = @Slug AND IsActive = 1", new { Slug = topicSlug });
+
+            if (topic == null) return NotFound();
+
+            return View(topic);
         }
     }
+
 }
 
-   

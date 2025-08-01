@@ -54,7 +54,21 @@ namespace Devfunda
                 name: "default",
                 pattern: "{controller=home}/{action=index}/{id?}");
 
-          
+            app.MapControllerRoute(
+      name: "topic-detail",
+      pattern: "Tutorials/{categorySlug}/{topicSlug}",
+      defaults: new { controller = "Tutorials", action = "Topic" });
+
+            app.MapControllerRoute(
+                name: "category-topics",
+                pattern: "Tutorials/{categorySlug}",
+                defaults: new { controller = "Tutorials", action = "Category" });
+
+            app.MapControllerRoute(
+                name: "all-categories",
+                pattern: "Tutorials",
+                defaults: new { controller = "Tutorials", action = "Index" });
+
             app.Run();
         }
     }

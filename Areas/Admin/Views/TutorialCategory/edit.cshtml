@@ -1,0 +1,38 @@
+﻿@model TutorialCategory
+<h2>Edit Category</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Name:</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Image URL:</label>
+        <input asp-for="ImageUrl" />
+    </div>
+
+    <div>
+        <label>Slug:</label>
+        <input asp-for="Slug" />
+    </div>
+
+    <div>
+        <label>Published On:</label>
+        <input asp-for="PublishedOn" type="date" />
+    </div>
+
+    <div>
+        <label>Description:</label>
+        <textarea asp-for="Description"></textarea>
+    </div>
+
+    <div>
+        <label>Is Active:</label>
+        <input asp-for="IsActive" type="checkbox" />
+    </div>
+
+    <button type="submit">Update</button>
+</form>

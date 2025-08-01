@@ -1,0 +1,62 @@
+﻿@model TutorialTopic
+@{
+    Layout = "~/Areas/Admin/Views/_layout.cshtml";
+}
+
+<h2>Edit Topic</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label>Tutorial ID:</label>
+        <select asp-for="TutorialId" asp-items="@(ViewBag.Tutorials)">
+            <option value="">-- Select Tutorial --</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Topic Name:</label>
+        <input asp-for="TopicName" />
+    </div>
+
+    <div>
+        <label>Topic Content:</label>
+        <textarea asp-for="TopicContent" class="rich-text"></textarea>
+    </div>
+
+    <div>
+        <label>Slug:</label>
+        <input asp-for="Slug" />
+    </div>
+
+    <div>
+        <label>Published On:</label>
+        <input asp-for="PublishedOn" type="date" />
+    </div>
+
+    <div>
+        <label>Updated On:</label>
+        <input asp-for="UpdatedOn" type="date" />
+    </div>
+
+    <div>
+        <label>Is Active:</label>
+        <input asp-for="IsActive" type="checkbox" />
+    </div>
+
+    <button type="submit">Update</button>
+</form>
+@section Scripts {
+    <script src="~/lib/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea.rich-text',
+            height: 400,
+            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table code help wordcount',
+            toolbar: 'undo redo | formatselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media | code preview',
+            branding: false,
+            license_key: 'gpl'
+        });
+    </script>
+}

@@ -1,4 +1,9 @@
-﻿<section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-3.jpg)">
+﻿@model IEnumerable<Devfunda.Areas.Admin.Models.TutorialTopic>
+@{
+    var category = (Devfunda.Areas.Admin.Models.TutorialCategory)ViewBag.Category;
+}
+
+<section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-3.jpg)">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -33,8 +38,20 @@
                         <img src="~/images/nodejsimg.webp" alt="Event">
                        
                         <p>Prerequisites: <a href="../frontend/javascript">JavaScript </a> and basic knowledge of web development</p>
-                         <p>   <ol class="force-ordered-list">
-                            <li>Introduction to Node.js</li> 
+                         <p>
+                            <ol class="force-ordered-list">
+                                @foreach (var topic in Model)
+                                {
+                                    <li class="list-group-item">
+                                        <a href="/Tutorials/@category.Slug/@topic.Slug">@topic.TopicName</a>
+                                        <br />
+                                        <small class="text-muted">Published at @topic.PublishedOn.ToShortDateString()</small>
+                                    </li>
+                                }
+                                </ul>
+
+                             
+                            <!--<li>Introduction to Node.js</li> 
                             <ul class="force-unordered-list">
                                 <li><a href="nodejs/node-js-intro">Node.js Introduction</a></li>
                                     <li>
@@ -149,7 +166,7 @@
                                     </ul>
                                 </li>
 
-                       </ol>
+                                </ol>-->
                         </p>
                     </div> <!-- events left -->
                 </div>

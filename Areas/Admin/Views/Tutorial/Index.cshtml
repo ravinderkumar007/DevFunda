@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Tutorial>
+<h2>Tutorial List</h2>
+<a href="/Admin/Tutorial/Create">Add New Tutorial</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category ID</th>
+            <th>Slug</th>
+            <th>Published On</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.CategoryId</td>
+                <td>@item.Slug</td>
+                <td>@item.PublishedOn.ToShortDateString()</td>
+                <td>
+                    <a href="/Admin/Tutorial/Edit/@item.Id">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

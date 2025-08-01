@@ -31,7 +31,5 @@ public partial class DevfundaDbContext : DbContext
 
     public virtual DbSet<User> Users { get; set; }
     public DbSet<Author> Authors { get; set; }
-
-
    
 }

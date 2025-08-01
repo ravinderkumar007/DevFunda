@@ -1,0 +1,3 @@
+﻿1.https://chatgpt.com/c/6881d1ca-6a2c-8001-b63d-1c744afdc88b in last i have asked to show category page 
+and show topic and click on topic show details page. 
+need ot implemnt this. 
