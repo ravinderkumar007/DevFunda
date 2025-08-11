@@ -1,5 +1,7 @@
 ﻿using Dapper;
 using Devfunda.Areas.Admin.Models;
+using Devfunda.Helpers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 
@@ -7,20 +9,23 @@ namespace Devfunda.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class TutorialCategoryController : Controller
-    {
+    { 
         private readonly IConfiguration _config;
         private readonly string _conn;
+        private readonly IWebHostEnvironment _env;
 
-        public TutorialCategoryController(IConfiguration config)
+        public TutorialCategoryController(IConfiguration config,IWebHostEnvironment env)
         {
             _config = config;
             _conn = _config.GetConnectionString("DefaultConnection");
+            _env = env;
         }
-
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             using var conn = new SqlConnection(_conn);
             var categories = await conn.QueryAsync<TutorialCategory>("SELECT * FROM TutorialCategories");
+            
             return View(categories);
         }
 
@@ -28,8 +33,15 @@ namespace Devfunda.Areas.Admin.Controllers
         public IActionResult Create() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Create(TutorialCategory model)
+        public async Task<IActionResult> Create(TutorialCategory model, IFormFile ImageUrl)
         {
+            //upload image
+            if (ImageUrl != null && ImageUrl.Length > 0)
+            {
+               
+                model.ImageUrl = await FileUploadHelper.UploadImageAsync(ImageUrl, "tutorial-categories", _env);
+            }
+
             using var conn = new SqlConnection(_conn);
             var query = @"INSERT INTO TutorialCategories 
                      (Name, ImageUrl, Slug, PublishedOn, Description, IsActive)

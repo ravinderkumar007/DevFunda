@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Devfunda.Areas.Admin.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
@@ -17,7 +18,7 @@ namespace Devfunda.Areas.Admin.Controllers
             _config = config;
             _conn = _config.GetConnectionString("DefaultConnection");
         }
-
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             using var conn = new SqlConnection(_conn);

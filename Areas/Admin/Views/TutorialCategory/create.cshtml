@@ -1,16 +1,13 @@
 ﻿@model TutorialCategory
 <h2>Add New Category</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" enctype="multipart/form-data">
     <div>
         <label>Name:</label>
         <input asp-for="Name" />
     </div>
 
-    <div>
-        <label>Image URL:</label>
-        <input asp-for="ImageUrl" />
-    </div>
+   
 
     <div>
         <label>Slug:</label>
@@ -30,6 +27,10 @@
     <div>
         <label>Is Active:</label>
         <input asp-for="IsActive" type="checkbox" />
+    </div>
+    <div class="form-group">
+        <label for="ImageFile">Category Image</label>
+        <input type="file" name="ImageUrl" class="form-control" />
     </div>
 
     <button type="submit">Create</button>

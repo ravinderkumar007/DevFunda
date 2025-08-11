@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devfunda", "Devfunda.csproj", "{40396C23-C544-4832-A9FE-10A52CD0C1B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devfunda", "Devfunda.csproj", "{40396C23-C544-4832-A9FE-10A52CD0C1B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pwdgenerator", "..\pwdgenerator\pwdgenerator.csproj", "{246C9363-6B4D-40D8-9601-49EFEBDBE26B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{40396C23-C544-4832-A9FE-10A52CD0C1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40396C23-C544-4832-A9FE-10A52CD0C1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40396C23-C544-4832-A9FE-10A52CD0C1B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{246C9363-6B4D-40D8-9601-49EFEBDBE26B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{246C9363-6B4D-40D8-9601-49EFEBDBE26B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{246C9363-6B4D-40D8-9601-49EFEBDBE26B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{246C9363-6B4D-40D8-9601-49EFEBDBE26B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

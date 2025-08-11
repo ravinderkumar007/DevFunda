@@ -1,6 +1,7 @@
 ﻿@model IEnumerable<Devfunda.Areas.Admin.Models.TutorialTopic>
 @{
     var category = (Devfunda.Areas.Admin.Models.TutorialCategory)ViewBag.Category;
+    
 }
 
 <section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url(images/page-banner-3.jpg)">
@@ -8,7 +9,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="page-banner-cont">
-                    <h2>Node.js Tutorial</h2>
+                    <h2>@category.Name Tutorial</h2>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -35,20 +36,20 @@
                         <span><i class="fa fa-calendar"></i> 2 December 2018</span>
                         <span><i class="fa fa-clock-o"></i> 10:00 Am - 3:00 Pm</span>
 
-                        <img src="~/images/nodejsimg.webp" alt="Event">
+                        <img src="@category.ImageUrl" alt="Event">
                        
                         <p>Prerequisites: <a href="../frontend/javascript">JavaScript </a> and basic knowledge of web development</p>
                          <p>
                             <ol class="force-ordered-list">
                                 @foreach (var topic in Model)
                                 {
-                                    <li class="list-group-item">
+                                    <li >
                                         <a href="/Tutorials/@category.Slug/@topic.Slug">@topic.TopicName</a>
                                         <br />
-                                        <small class="text-muted">Published at @topic.PublishedOn.ToShortDateString()</small>
+                                       
                                     </li>
                                 }
-                                </ul>
+                                </ol>
 
                              
                             <!--<li>Introduction to Node.js</li> 

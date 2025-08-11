@@ -56,18 +56,18 @@ namespace Devfunda
 
             app.MapControllerRoute(
       name: "topic-detail",
-      pattern: "Tutorials/{categorySlug}/{topicSlug}",
-      defaults: new { controller = "Tutorials", action = "Topic" });
+      pattern: "tutorials/{categorySlug}/{topicSlug}",
+      defaults: new { controller = "tutorials", action = "Topic" });
 
             app.MapControllerRoute(
                 name: "category-topics",
-                pattern: "Tutorials/{categorySlug}",
-                defaults: new { controller = "Tutorials", action = "Category" });
+                pattern: "tutorials/{categorySlug}",
+                defaults: new { controller = "tutorials", action = "Category" });
 
             app.MapControllerRoute(
                 name: "all-categories",
-                pattern: "Tutorials",
-                defaults: new { controller = "Tutorials", action = "Index" });
+                pattern: "tutorials",
+                defaults: new { controller = "tutorials", action = "Index" });
 
             app.Run();
         }
