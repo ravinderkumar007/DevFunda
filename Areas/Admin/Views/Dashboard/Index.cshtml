@@ -6,6 +6,12 @@
 <ul>
     <li><a asp-area="Admin" asp-controller="Post" asp-action="Index">Manage Posts</a></li>
     <li><a asp-area="Admin" asp-controller="Category" asp-action="Index">Manage Categories</a></li>
-    <li><a asp-area="Admin" asp-controller="Page" asp-action="Index">Manage Pages</a></li>
-    <li><a asp-area="Admin" asp-controller="tutorials" asp-action="Index">Manage Tutorial</a></li>
+    <li><a asp-area="Admin" asp-controller="Pages" asp-action="Index">Manage Pages</a></li>
+    <li><a asp-area="Admin" asp-controller="tutorial" asp-action="Index">Manage Tutorial</a>
+    <ul>
+            <a asp-area="Admin" asp-controller="tutorialcategory" asp-action="Index">Manage Tutorial Category</a>
+        
+            <a asp-area="Admin" asp-controller="tutorialtopic" asp-action="Index">Manage Tutorial Topic</a>
+    </ul>
+    </li>
 </ul>

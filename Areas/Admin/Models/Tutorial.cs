@@ -11,6 +11,7 @@
         public DateTime PublishedOn { get; set; }
         public DateTime UpdatedOn { get; set; }
         public bool IsActive { get; set; }
+        public List<TutorialTopic> Topics { get; set; }
     }
 
 }
